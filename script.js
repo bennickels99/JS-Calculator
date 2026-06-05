@@ -1,4 +1,3 @@
-
 // global variables to be used in each function
 let arg1 = "0";
 let arg2 = "0";
@@ -38,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // modifier buttons
     const percentage = document.getElementById("percent");
     const sign = document.getElementById("signSwap")
+    const decimalNumber = document.getElementById("decimal");
 
     // clear buttons
     const allClear = document.getElementById("all clear");
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     percentage.addEventListener("click", function() {turnPercent()});
     sign.addEventListener("click", function() {changeSigns()});
+    decimalNumber.addEventListener("click", function() {addDecimal()});
 
     allClear.addEventListener("click", function() {clearAll()});
     deleted.addEventListener("click", function() {deleting()});
@@ -119,6 +120,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }else if(end){
             answer = Number(answer) * -1;
             String(answer);
+            display.innerHTML = answer;
+        }
+    }
+
+    function addDecimal(){
+        if(start){
+            arg1 = arg1 + ".";
+            display.innerHTML = arg1;
+        }else if(middle){
+            arg2 = arg2 + ".";
+            display.innerHTML = arg1 + operator + arg2;
+        }else if(end){
+            answer = answer + ".";
             display.innerHTML = answer;
         }
     }
@@ -183,6 +197,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function deleting(){
-        
+
     }
 })
