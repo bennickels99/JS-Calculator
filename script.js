@@ -2,8 +2,7 @@
 let arg1 = "0";
 let arg2 = "0";
 let operator;
-let answer; 
-
+let answer;
 
 // booleans to know what state calculator is in
 let start = true;
@@ -180,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         middle = false;
         end = true;
+        answer = answer.toPrecision(8);
         display.innerHTML = String(answer);
     }
 
@@ -197,6 +197,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function deleting(){
-
+        if(start){
+            arg1 = arg1.slice(0, -1);
+            display.innerHTML = arg1;
+        }else if(middle){
+            arg2 = arg2.slice(0, -1);
+            display.innerHTML = arg1 + operator + arg2;
+        }
     }
 })
